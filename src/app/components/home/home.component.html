@@ -1,0 +1,54 @@
+<div class="home">
+    <div class="container-fluid">
+        <div class="hero-section">
+            <h1 class="display-4">Luggage Storage Near You.</h1>
+            <p class="lead">Find the recipe for your favorite meal</p>
+            <form [formGroup]="searchForm">
+                <div class="form-group row">
+                    <input type="text" class="form-control" formControlName="search" placeholder="Search for a recipe i.e. chicken">
+                    <button class="btn btn-info" type="button" (click)="search()"><i class="fas fa-search"></i></button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div *ngFor="let recipe of recipes" class="col-md-4 mb-4">
+                <div class="card" style="width: 18rem;">
+                    <img src="{{recipe.recipe.image}}" class="card-img-top" onerror="this.src='assets/images/food.jpg'">
+                    <div class="card-body">
+                        <h5 class="card-title">{{recipe.recipe.label}}</h5>
+                        <p class="card-text">{{recipe.recipe.source}}
+                        </p>
+                        <button (click)="details(recipe.recipe.uri)" class="btn btn-primary">Recipe</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="recipes === null" class="featured">
+            <div *ngFor="let recipe of featured" class="card mb-3" style="max-width: 1200px;">
+                <div class="row no-gutters">
+                    <div class="col-md-4">
+                        <img src="{{recipe.image}}" class="card-img" onerror="this.src='assets/images/food.jpg'">
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card-body">
+                            <p class="card-text"><span>Source:</span> {{recipe.source}}</p>
+                            <p class="card-text"><span>Calories : </span>{{recipe.calories}}</p>
+                            <p class="card-text"><span>Total Weight : </span>{{recipe.totalWeight}}</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card-body">
+                            <p class="card-text"><span>Ingredients:</span> {{recipe.ingredientLines}}</p>
+                            <p class="card-text"><span>Diet Labels : </span>{{recipe.dietLabels}}</p>
+                            <p class="card-text"><span>Health Labels : </span>{{recipe.healthLabels}}</p>
+                            <button routerLink="/" type="button" class="btn btn-primary">Back</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
