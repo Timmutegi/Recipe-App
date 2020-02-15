@@ -1,7 +1,12 @@
 <div class="container-fluid">
     <div class="hero-section">
         <h1 class="display-4">Delicious Meals Made Easy</h1>
-        <p class="lead">Find the recipe of your favorite meal</p>
+        <div class="quote">
+            <blockquote>
+                <p class="lead">"One cannot think well, love well, sleep well, if one has not dined well."</p>
+                <footer class="lead">— Virginia Woolf</footer>
+            </blockquote>
+        </div>
         <form [formGroup]="searchForm">
             <div class="form-group row">
                 <input type="text" class="form-control" formControlName="search" placeholder="Search for a recipe i.e. chicken" [ngClass]="{ 'is-invalid': submitted && f.search.errors}">
@@ -11,14 +16,6 @@
     </div>
 </div>
 <div class="container">
-    <div class="row">
-        <div class="quote">
-            <blockquote>
-                <p>One cannot think well, love well, sleep well, if one has not dined well</p>
-                <footer>— Virginia Woolf</footer>
-            </blockquote>
-        </div>
-    </div>
     <div class="row" id="results">
         <div *ngIf="found === false" class="card">
             <div class="card-body">
