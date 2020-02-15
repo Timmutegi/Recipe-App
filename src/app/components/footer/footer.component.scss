@@ -1,27 +1,17 @@
 .footer {
-    min-height: 300px;
+    min-height: 200px;
     background-color: #182a50;
     color: white;
     .container {
         padding-top: 50px;
-        .row {
-            margin-bottom: 50px;
-            h4 {
-                color: #85d8ba;
-            }
-            .col {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                flex-direction: column;
-            }
-            a {
-                cursor: pointer;
-                font-size: 13px;
-            }
-            a:hover {
-                color: #85d8ba;
-            }
+        a {
+            cursor: pointer;
+            font-size: 13px;
+            color: white;
+        }
+        a:hover {
+            color: #85d8ba;
+            text-decoration: none;
         }
     }
     hr {
