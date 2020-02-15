@@ -15,9 +15,10 @@ export class RecipeDetailsComponent implements OnInit {
 
   ngOnInit() {
     this.URI = this.activatedRoute.snapshot.params.URI;
+    // console.log(this.URI);
     this.api.getOne('?r=' + this.URI).subscribe(
       res => {
-        console.log(res);
+        // console.log(res);
         this.recipe = res;
       }
     );
