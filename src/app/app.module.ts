@@ -7,12 +7,14 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RecipeDetailsComponent } from './components/recipe-details/recipe-details.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    RecipeDetailsComponent
+    RecipeDetailsComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ApiService } from '../../services/api.service';
 import { Router } from '@angular/router';
 
@@ -12,23 +12,39 @@ export class HomeComponent implements OnInit {
   searchForm: FormGroup;
   featured: [];
   recipes: [];
+  isLoading = true;
+  submitted: boolean;
+  found: boolean;
 
   constructor(private formBuilder: FormBuilder, private api: ApiService, private router: Router) { }
 
   ngOnInit() {
     this.searchForm = this.formBuilder.group({
-      search: ['']
+      search: ['', Validators.required]
     });
     this.getfeatured();
   }
 
+    get f() {
+    return this.searchForm.controls;
+  }
+
   search() {
-    // console.log('?q=' + this.searchForm.get('search').value);
+    this.submitted = true;
+    if (this.searchForm.invalid) {
+      return;
+    }
     this.api.search('?q=' + this.searchForm.get('search').value).subscribe(
       res => {
-        // console.log(res);
-        this.recipes = res.hits;
-        console.log(this.recipes);
+        console.log(res.count);
+        if (res.count === 0) {
+          this.found = false;
+          this.recipes = null;
+        } else {
+          this.found = true;
+          this.recipes = res.hits;
+          console.log(this.recipes);
+        }
       }
     );
   }
@@ -40,14 +56,14 @@ export class HomeComponent implements OnInit {
   }
 
   getfeatured() {
-    const URI = 'http%3A%2F%2Fwww.edamam.com%2Fontologies%2Fedamam.owl%23recipe_9b5945e03f05acbf9d69625138385408';
-    console.log(URI);
+    const URI = encodeURIComponent('http://www.edamam.com/ontologies/edamam.owl#recipe_69468029a49db238f0e2b4e479067e21');
+    // console.log(URI);
     this.api.getOne('?r=' + URI).subscribe(
       res => {
         console.log(res);
+        this.isLoading = false;
         this.featured = res;
     });
-
   }
 
 }

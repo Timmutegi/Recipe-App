@@ -17,6 +17,7 @@
         }
         .lead {
             color: white;
+            font-size: 15px;
         }
         form {
             display: flex;
@@ -46,11 +47,26 @@
 }
 
 .container {
-    img {
-        width: 300px;
+    padding-top: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    #results {
+        padding-top: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
-    .row {
-        padding-top: 20px;
+    .featured {
+        margin-top: 50px;
+        margin-bottom: 50px;
+        span {
+            font-weight: bold;
+        }
+        .card-text {
+            font-size: 13px;
+        }
     }
 }
 
