@@ -17,7 +17,7 @@
 </div>
 <div class="container">
     <div class="row" id="results">
-        <div *ngIf="found === false" class="card">
+        <div *ngIf="found === false" class="card" id="card">
             <div class="card-body">
                 Sorry, the recipe you are looking for cannot be found. Give it another try or consider the featured recipe.
             </div>
@@ -27,9 +27,7 @@
                 <img src="{{recipe.recipe.image}}" class="card-img-top" onerror="this.src='assets/images/food.jpg'">
                 <div class="card-body">
                     <h5 class="card-title">{{recipe.recipe.label}}</h5>
-                    <p class="card-text">{{recipe.recipe.source}}
-                    </p>
-                    <button (click)="details(recipe.recipe.uri)" class="btn btn-primary">Recipe</button>
+                    <button (click)="details(recipe.recipe.uri)" class="btn btn-primary">View Recipe</button>
                 </div>
             </div>
         </div>
@@ -66,4 +64,3 @@
         </div>
     </div>
 </div>
-<app-footer></app-footer>
