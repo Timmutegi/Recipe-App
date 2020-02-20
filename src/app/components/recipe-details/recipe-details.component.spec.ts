@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { RecipeDetailsComponent } from './recipe-details.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ActivatedRoute } from '@angular/router';
 
 describe('RecipeDetailsComponent', () => {
   let component: RecipeDetailsComponent;
@@ -8,7 +10,15 @@ describe('RecipeDetailsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ RecipeDetailsComponent ]
+      declarations: [ RecipeDetailsComponent ],
+      imports: [HttpClientModule],
+      providers: [{provide: ActivatedRoute, useValue: {
+        snapshot: {
+          params: {
+            ID: 6
+          }
+        }
+      }}]
     })
     .compileComponents();
   }));
