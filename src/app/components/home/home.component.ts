@@ -36,21 +36,18 @@ export class HomeComponent implements OnInit {
     }
     this.api.search('?q=' + this.searchForm.get('search').value).subscribe(
       res => {
-        console.log(res.count);
         if (res.count === 0) {
           this.found = false;
           this.recipes = null;
         } else {
           this.found = true;
           this.recipes = res.hits;
-          console.log(this.recipes);
         }
       }
     );
   }
 
   details(ID: string) {
-    console.log(ID);
     const URI = encodeURIComponent(ID);
     this.router.navigate([`recipes/${URI}`]);
   }
@@ -60,7 +57,6 @@ export class HomeComponent implements OnInit {
     // console.log(URI);
     this.api.getOne('?r=' + URI).subscribe(
       res => {
-        console.log(res);
         this.isLoading = false;
         this.featured = res;
     });
