@@ -1,5 +1,5 @@
 .container-fluid {
-    background-color: #182a50;
+    background-color: #255957;
     min-height: 300px;
     .btn-success {
         margin-top: 30px;
@@ -13,7 +13,7 @@
         padding-top: 70px;
         text-align: center;
         .display-4 {
-            color: #85d8ba;
+            color: #00072D;
         }
         .lead {
             color: white;
@@ -37,7 +37,7 @@
             button {
                 border-radius: 0px;
                 height: 2rem;
-                background-color: #820263;
+                background-color: #124559;
                 border: 0px;
                 outline: none !important;
                 box-shadow: none !important;
@@ -52,10 +52,33 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        .col-md-4 {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            .card {
+                height: 22rem;
+                button {
+                    border-radius: 0px;
+                    font-size: 13px;
+                    font-weight: bold;
+                    bottom: 20px;
+                    position: absolute;
+                    background-color: #124559;
+                    border: none;
+                }
+                button:hover {
+                    color: #85d8ba;
+                }
+            }
+        }
     }
     .featured {
         margin-top: 50px;
-        margin-bottom: 50px;
+        margin-bottom: 150px;
+        display-5 {
+            color: #00072D;
+        }
         span {
             font-weight: bold;
         }
@@ -66,8 +89,14 @@
 }
 
 @media only screen and (max-width: 768px) {
+    #card {
+        width: 80%;
+    }
+    .featured {
+        margin-top: 20px;
+    }
     input[type="text"] {
-        width: 17em !important;
+        width: 18em !important;
         font-size: 10px !important;
     }
     h1 {
